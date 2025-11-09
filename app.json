@@ -17,7 +17,9 @@
       },
       "permissions": [
         "android.permission.INTERNET",
-        "android.permission.VIBRATE"
+        "android.permission.VIBRATE",
+        "android.permission.RECORD_AUDIO",
+        "android.permission.MODIFY_AUDIO_SETTINGS"
       ]
     },
     "ios": {
@@ -43,6 +45,7 @@
       "eas": {
         "projectId": "f46c2a80-8bff-475f-8abf-164d6083e7e5"
       }
-    }
+    },
+    "owner": "nagendra.s.y"
   }
 }

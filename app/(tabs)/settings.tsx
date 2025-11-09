@@ -61,10 +61,13 @@ export default function SettingsScreen() {
           style: 'destructive',
           onPress: async () => {
             try {
+              // Clear login data from AsyncStorage
               await AsyncStorage.removeItem('userLoginData');
-              setIsLoggedIn(false); // Update local state
+              console.log('Login data cleared successfully');
+              
               // Navigate back to home screen which will show login form
               router.replace('/');
+              console.log('Navigation completed');
             } catch (error) {
               console.error('Error during logout:', error);
               Alert.alert('Error', 'Failed to logout. Please try again.');
@@ -161,8 +164,7 @@ export default function SettingsScreen() {
 
                 <Text style={styles.aboutDescription}>
                   A comprehensive audio guide for bus routes, providing real-time announcements
-                  and information for passengers. This app helps make public transportation
-                  more accessible for everyone.
+                  and information for passengers. This app helps for drivers to play audio announcements for their bus routes. and keep handy bus documents.
                 </Text>
 
                 <View style={styles.aboutDivider} />
@@ -240,7 +242,7 @@ export default function SettingsScreen() {
 
                 <TouchableOpacity style={styles.contactItem} onPress={() => Alert.alert('Email', 'support@busrouteguide.com')}>
                   <Mail size={20} color="#000000" />
-                  <Text style={styles.contactText}>support@busrouteguide.com</Text>
+                  <Text style={styles.contactText}>ysainagendra@gmail.com</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity style={styles.contactItem} onPress={() => Alert.alert('Phone', '+1 (555) 123-4567')}>

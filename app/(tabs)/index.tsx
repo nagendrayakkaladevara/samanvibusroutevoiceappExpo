@@ -36,10 +36,6 @@ export default function HomeScreen() {
   const [message, setMessage] = useState('');
   const [messageType, setMessageType] = useState<'success' | 'error' | ''>('');
 
-  // Check for existing login session on app startup
-  useEffect(() => {
-    checkLoginSession();
-  }, []);
 
   // Also check login status when screen comes into focus (e.g., after logout from settings)
   useFocusEffect(
