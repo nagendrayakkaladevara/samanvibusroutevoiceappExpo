@@ -6,9 +6,25 @@ export const busRoutes: BusRoute[] = [
     routeNumber: '🙂',
     routeName: 'Quick Actions',
     stops: [
-      { id: '1', name: 'Welcome Message [Coming soon]', code: '', audioFile: 'DinnerBreak.mp3' },
-      { id: '2', name: 'Dinner Break', code: '', audioFile: 'DinnerBreak.mp3' },
-      { id: '3', name: 'Washroom Break', code: '', audioFile: 'WashroomBreak.mp3' }
+      { 
+        id: '1', 
+        name: 'Welcome Notes', 
+        code: '', 
+        audioFile: '',
+        isFolder: true,
+        children: [
+          { id: '1-1', name: 'NL02 B 0492 - Safety Announcement', code: '', audioFile: 'NL02 B 0492 - Samanvi_Travels_Safety_Announcement..mp3' },
+          { id: '1-2', name: 'NL02 B 0493 - Safety Announcement', code: '', audioFile: 'NL02 B 0493 - Samanvi_Travels_Safety_Announcement..mp3' },
+          { id: '1-3', name: 'NL02 B 3152 - Safety Announcement', code: '', audioFile: 'NL02 B 3152 - Samanvi_Travels_Safety_Announcement..mp3' },
+          { id: '1-4', name: 'NL02 B 3153 - Safety Announcement', code: '', audioFile: 'NL02 B 3153 - Samanvi_Travels_Safety_Announcement..mp3' },
+          { id: '1-5', name: 'NL02 B 4142 - Safety Announcement', code: '', audioFile: 'NL02 B 4142 - Samanvi_Travels_Safety_Announcement..mp3' },
+          { id: '1-6', name: 'NL02 B 4241 - Safety Announcement', code: '', audioFile: 'NL02 B 4241 - Samanvi_Travels_Safety_Announcement..mp3' },
+          { id: '1-7', name: 'NL02 B 5152 - Safety Announcement', code: '', audioFile: 'NL02 B 5152 - Samanvi_Travels_Safety_Announcement..mp3' },
+          { id: '1-8', name: 'NL02 B 5251 - Safety Announcement', code: '', audioFile: 'NL02 B 5251 - Samanvi_Travels_Safety_Announcement..mp3' }
+        ]
+      },
+      { id: '1', name: 'Dinner Break', code: '', audioFile: 'DinnerBreak.mp3' },
+      { id: '2', name: 'Washroom Break', code: '', audioFile: 'WashroomBreak.mp3' }
     ]
   },
   {

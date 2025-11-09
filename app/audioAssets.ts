@@ -142,5 +142,15 @@ export const audioAssets: { [key: string]: any } = {
 
   //Quick Actions files
   'WashroomBreak.mp3': require('../assets/audio/QA/WashroomBreak.mp3'),
-  'DinnerBreak.mp3': require('../assets/audio/QA/DinnerBreak.mp3')
+  'DinnerBreak.mp3': require('../assets/audio/QA/DinnerBreak.mp3'),
+
+  //Welcome Notes audio files
+  'NL02 B 0492 - Samanvi_Travels_Safety_Announcement..mp3': require('../assets/audio/welcomenotes/NL02 B 0492 - Samanvi_Travels_Safety_Announcement..mp3'),
+  'NL02 B 0493 - Samanvi_Travels_Safety_Announcement..mp3': require('../assets/audio/welcomenotes/NL02 B 0493 - Samanvi_Travels_Safety_Announcement..mp3'),
+  'NL02 B 3152 - Samanvi_Travels_Safety_Announcement..mp3': require('../assets/audio/welcomenotes/NL02 B 3152 - Samanvi_Travels_Safety_Announcement..mp3'),
+  'NL02 B 3153 - Samanvi_Travels_Safety_Announcement..mp3': require('../assets/audio/welcomenotes/NL02 B 3153 - Samanvi_Travels_Safety_Announcement..mp3'),
+  'NL02 B 4142 - Samanvi_Travels_Safety_Announcement..mp3': require('../assets/audio/welcomenotes/NL02 B 4142 - Samanvi_Travels_Safety_Announcement..mp3'),
+  'NL02 B 4241 - Samanvi_Travels_Safety_Announcement..mp3': require('../assets/audio/welcomenotes/NL02 B 4241 - Samanvi_Travels_Safety_Announcement..mp3'),
+  'NL02 B 5152 - Samanvi_Travels_Safety_Announcement..mp3': require('../assets/audio/welcomenotes/NL02 B 5152 - Samanvi_Travels_Safety_Announcement..mp3'),
+  'NL02 B 5251 - Samanvi_Travels_Safety_Announcement..mp3': require('../assets/audio/welcomenotes/NL02 B 5251 - Samanvi_Travels_Safety_Announcement..mp3')
 }; 

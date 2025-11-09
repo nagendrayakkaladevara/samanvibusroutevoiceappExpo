@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, SafeAreaView, Alert } from 'react-native';
 import { useRouter, useLocalSearchParams } from 'expo-router';
-import { ArrowLeft, MapPin, Play, Pause, Volume2 } from 'lucide-react-native';
+import { ArrowLeft, MapPin, Play, Pause, Volume2, ChevronDown, ChevronRight, Folder } from 'lucide-react-native';
 import { Audio } from 'expo-av';
 import { busRoutes } from '../data/busRoutes';
 import { BusStop } from '../types/routes';
@@ -14,6 +14,7 @@ export default function RouteDetailsScreen() {
   const [currentPlayingStop, setCurrentPlayingStop] = useState<string | null>(null);
   const [sound, setSound] = useState<Audio.Sound | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [expandedFolders, setExpandedFolders] = useState<Set<string>>(new Set());
 
   const routeNumber = params.routeNumber as string;
   const routeName = params.routeName as string;
@@ -48,7 +49,23 @@ export default function RouteDetailsScreen() {
     };
   }, []);
 
+  const toggleFolder = (stopId: string) => {
+    const newExpanded = new Set(expandedFolders);
+    if (newExpanded.has(stopId)) {
+      newExpanded.delete(stopId);
+    } else {
+      newExpanded.add(stopId);
+    }
+    setExpandedFolders(newExpanded);
+  };
+
   const playStopAudio = async (stop: BusStop, index: number) => {
+    // If it's a folder, toggle it instead of playing
+    if (stop.isFolder) {
+      toggleFolder(stop.id);
+      return;
+    }
+
     try {
       // Stop current audio if playing
       if (sound) {
@@ -101,6 +118,94 @@ export default function RouteDetailsScreen() {
     }
   };
 
+  const renderStop = (stop: BusStop, index: number, isChild: boolean = false) => {
+    const isExpanded = expandedFolders.has(stop.id);
+    const hasChildren = stop.isFolder && stop.children && stop.children.length > 0;
+    const childCount = stop.isFolder ? (stop.children?.length || 0) : 0;
+
+    return (
+      <View key={stop.id}>
+        <TouchableOpacity
+          style={[
+            styles.stopCard,
+            isChild && styles.childCard,
+            currentPlayingStop === stop.id && !stop.isFolder && styles.stopCardActive,
+            stop.isFolder && styles.folderCard
+          ]}
+          onPress={() => playStopAudio(stop, index)}
+          activeOpacity={0.8}
+          disabled={isLoading && !stop.isFolder}
+        >
+          <View style={styles.stopHeader}>
+            <View style={[
+              styles.stopNumberContainer,
+              stop.isFolder && styles.folderIconContainer
+            ]}>
+              {stop.isFolder ? (
+                <Folder size={22} color="#ffffff" />
+              ) : (
+                <Text style={styles.stopNumber}>{index + 1}</Text>
+              )}
+            </View>
+            <View style={styles.stopInfo}>
+              <Text style={[
+                styles.stopName,
+                stop.isFolder && styles.folderName
+              ]}>
+                {stop.name}
+              </Text>
+              {stop.isFolder && (
+                <Text style={styles.folderCount}>
+                  {childCount > 0 ? `${childCount} item${childCount !== 1 ? 's' : ''}` : 'Folder'}
+                </Text>
+              )}
+            </View>
+            {stop.isFolder ? (
+              <View style={styles.folderIcon}>
+                {isExpanded ? (
+                  <ChevronDown size={20} color="#000000" />
+                ) : (
+                  <ChevronRight size={20} color="#000000" />
+                )}
+              </View>
+            ) : (
+              <View style={styles.playButton}>
+                {currentPlayingStop === stop.id ? (
+                  <Pause size={20} color="#000000" />
+                ) : (
+                  <Play size={20} color="#000000" />
+                )}
+              </View>
+            )}
+          </View>
+
+          {currentPlayingStop === stop.id && !stop.isFolder && (
+            <View style={styles.playingIndicator}>
+              <Volume2 size={16} color="#000000" />
+              <Text style={styles.playingText}>
+                {isLoading ? 'Loading audio...' : 'Playing announcement...'}
+              </Text>
+            </View>
+          )}
+        </TouchableOpacity>
+
+        {stop.isFolder && isExpanded && (
+          <View style={styles.childrenContainer}>
+            {hasChildren ? (
+              stop.children!.map((child, childIndex) => 
+                renderStop(child, childIndex, true)
+              )
+            ) : (
+              <View style={styles.emptyFolderContainer}>
+                <Text style={styles.emptyFolderText}>No items in this folder</Text>
+              </View>
+            )}
+          </View>
+        )}
+      </View>
+    );
+  };
+
   const handleBack = () => {
     if (sound) {
       sound.stopAsync();
@@ -146,44 +251,7 @@ export default function RouteDetailsScreen() {
           <Text style={styles.stopsSubtitle}>Tap any {routeName === "Quick Actions" ? 'action' : 'stop'} to hear the announcement</Text>
 
           <View style={styles.stopsList}>
-            {stops.map((stop: BusStop, index: number) => (
-              <TouchableOpacity
-                key={stop.id}
-                style={[
-                  styles.stopCard,
-                  currentPlayingStop === stop.id && styles.stopCardActive
-                ]}
-                onPress={() => playStopAudio(stop, index)}
-                activeOpacity={0.8}
-                disabled={isLoading}
-              >
-                <View style={styles.stopHeader}>
-                  <View style={styles.stopNumberContainer}>
-                    <Text style={styles.stopNumber}>{index + 1}</Text>
-                  </View>
-                  <View style={styles.stopInfo}>
-                    <Text style={styles.stopName}>{stop.name}</Text>
-                    {/* <Text style={styles.stopCode}>Stop Code: {stop.code}</Text> */}
-                  </View>
-                  <View style={styles.playButton}>
-                    {currentPlayingStop === stop.id ? (
-                      <Pause size={20} color="#000000" />
-                    ) : (
-                      <Play size={20} color="#000000" />
-                    )}
-                  </View>
-                </View>
-
-                {currentPlayingStop === stop.id && (
-                  <View style={styles.playingIndicator}>
-                    <Volume2 size={16} color="#000000" />
-                    <Text style={styles.playingText}>
-                      {isLoading ? 'Loading audio...' : 'Playing announcement...'}
-                    </Text>
-                  </View>
-                )}
-              </TouchableOpacity>
-            ))}
+            {stops.map((stop: BusStop, index: number) => renderStop(stop, index))}
           </View>
         </View>
       </ScrollView>
@@ -328,5 +396,54 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: '#000000',
     marginBottom: 24,
+  },
+  folderCard: {
+    backgroundColor: '#e8e8e8',
+    borderLeftWidth: 3,
+    borderLeftColor: '#000000',
+  },
+  childCard: {
+    marginTop: 10,
+    marginLeft: 20,
+    backgroundColor: '#fafafa',
+  },
+  childrenContainer: {
+    marginTop: 8,
+    marginLeft: 16,
+  },
+  folderIcon: {
+    backgroundColor: '#ffffff',
+    borderRadius: 20,
+    width: 40,
+    height: 40,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  folderIconContainer: {
+    backgroundColor: '#4a90e2',
+  },
+  folderName: {
+    fontWeight: '600',
+  },
+  folderCount: {
+    fontFamily: 'Fredoka-Regular',
+    fontSize: 12,
+    color: '#070707',
+    opacity: 0.6,
+    marginTop: 2,
+  },
+  emptyFolderContainer: {
+    padding: 16,
+    backgroundColor: '#f5f5f5',
+    borderRadius: 8,
+    marginTop: 4,
+    alignItems: 'center',
+  },
+  emptyFolderText: {
+    fontFamily: 'Fredoka-Regular',
+    fontSize: 14,
+    color: '#070707',
+    opacity: 0.5,
+    fontStyle: 'italic',
   },
 });

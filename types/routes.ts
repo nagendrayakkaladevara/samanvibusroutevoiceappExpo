@@ -3,6 +3,8 @@ export interface BusStop {
   name: string;
   code: string;
   audioFile: string;
+  isFolder?: boolean;
+  children?: BusStop[];
 }
 
 export interface BusRoute {
