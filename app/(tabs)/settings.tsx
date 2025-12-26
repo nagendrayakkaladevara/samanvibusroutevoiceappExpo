@@ -158,7 +158,7 @@ export default function SettingsScreen() {
             {showAbout && (
               <View style={styles.accordionContent}>
                 <Text style={styles.aboutTitle}>Bus Route Audio Guide</Text>
-                <Text style={styles.aboutVersion}>Version 1.0.1</Text>
+                <Text style={styles.aboutVersion}>Version 2.0</Text>
 
                 <View style={styles.aboutDivider} />
 
@@ -170,11 +170,14 @@ export default function SettingsScreen() {
                 <View style={styles.aboutDivider} />
 
                 <View style={styles.featureList}>
-                  <Text style={styles.featureTitle}>Features:</Text>
+                  <Text style={styles.featureTitle}>Current Features:</Text>
                   <Text style={styles.featureItem}>• Audio announcements for all bus stops</Text>
                   <Text style={styles.featureItem}>• Real-time route information</Text>
                   <Text style={styles.featureItem}>• Easy-to-use interface</Text>
                   <Text style={styles.featureItem}>• Accessibility features</Text>
+                  <Text style={styles.featureItem}>• Bus documents access</Text>
+                  <Text style={styles.featureItem}>• It will automatically logout every 2 days</Text>
+                  <Text style={styles.featureItem}>• Mobile automatically set to silent and media volume set to 60% when app opens</Text>
                 </View>
 
                 <View style={styles.aboutDivider} />
@@ -385,6 +388,8 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#070707',
     opacity: 0.7,
+    marginBottom: 6,
+    lineHeight: 20,
   },
   copyrightText: {
     fontFamily: 'sans-serif',

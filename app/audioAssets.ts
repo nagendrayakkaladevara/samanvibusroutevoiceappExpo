@@ -35,6 +35,51 @@ export const audioAssets: { [key: string]: any } = {
   '32.chandanagar.mp3': require('../assets/audio/HydStops/32.chandanagar.mp3'),
   '33.lingampally.mp3': require('../assets/audio/HydStops/33.lingampally.mp3'),
   '34.bhel.mp3': require('../assets/audio/HydStops/34.bhel.mp3'),
+  '35.Ayyappasocity.mp3': require('../assets/audio/HydStops/35.Ayyappasocity.mp3'),
+  '36.Madhapur.mp3': require('../assets/audio/HydStops/36.Madhapur.mp3'),
+  '37.Hitechcity.mp3': require('../assets/audio/HydStops/37.Hitechcity.mp3'),
+  '38.Biodiversity.mp3': require('../assets/audio/HydStops/38.Biodiversity.mp3'),
+  '39.Gachibowli.mp3': require('../assets/audio/HydStops/39.Gachibowli.mp3'),
+  '40.Kondapur.mp3': require('../assets/audio/HydStops/40.Kondapur.mp3'),
+  '41.Kothaguda.mp3': require('../assets/audio/HydStops/41.Kothaguda.mp3'),
+
+  // VizagStops audio files
+  '1.Gajuwaka.mp3': require('../assets/audio/VizagStops/1.Gajuwaka.mp3'),
+  '2.NAD Jn.mp3': require('../assets/audio/VizagStops/2.NAD Jn.mp3'),
+  '3.Kurmanapalem.mp3': require('../assets/audio/VizagStops/3.Kurmanapalem.mp3'),
+  '4.Airport Gate.mp3': require('../assets/audio/VizagStops/4.Airport Gate.mp3'),
+  '5.Maddilapalem.mp3': require('../assets/audio/VizagStops/5.Maddilapalem.mp3'),
+  '6.Isukathota.mp3': require('../assets/audio/VizagStops/6.Isukathota.mp3'),
+  '7.Akkayapalem.mp3': require('../assets/audio/VizagStops/7.Akkayapalem.mp3'),
+  '8.MVP Colony.mp3': require('../assets/audio/VizagStops/8.MVP Colony.mp3'),
+  '9.Ramatalkies.mp3': require('../assets/audio/VizagStops/9.Ramatalkies.mp3'),
+  '10.Srinagar.mp3': require('../assets/audio/VizagStops/10.Srinagar.mp3'),
+  '11.Sheelanagar.mp3': require('../assets/audio/VizagStops/11.Sheelanagar.mp3'),
+  '12.Murali Nagar.mp3': require('../assets/audio/VizagStops/12.Murali Nagar.mp3'),
+  '13.Kakani Nagar.mp3': require('../assets/audio/VizagStops/13.Kakani Nagar.mp3'),
+  '14.Lankelapalem.mp3': require('../assets/audio/VizagStops/14.Lankelapalem.mp3'),
+  '15.Aganampudi.mp3': require('../assets/audio/VizagStops/15.Aganampudi.mp3'),
+  '16.BHPV Junctiom.mp3': require('../assets/audio/VizagStops/16.BHPV Junctiom.mp3'),
+  '17.Gurudwara.mp3': require('../assets/audio/VizagStops/17.Gurudwara.mp3'),
+  '18.Urvasi.mp3': require('../assets/audio/VizagStops/18.Urvasi.mp3'),
+
+  // RjyStops audio files
+  '1.Bommuru.mp3': require('../assets/audio/RjyStops/1.Bommuru.mp3'),
+  '2.diwancheruvu.mp3': require('../assets/audio/RjyStops/2.diwancheruvu.mp3'),
+  '3.gokavaram buststand.mp3': require('../assets/audio/RjyStops/3.gokavaram buststand.mp3'),
+  '4.kambala cheruvu.mp3': require('../assets/audio/RjyStops/4.kambala cheruvu.mp3'),
+  '5.Katheru.mp3': require('../assets/audio/RjyStops/5.Katheru.mp3'),
+  '6.Lalacheruvu.mp3': require('../assets/audio/RjyStops/6.Lalacheruvu.mp3'),
+  '7.Morampudi.mp3': require('../assets/audio/RjyStops/7.Morampudi.mp3'),
+  '8.papermill road.mp3': require('../assets/audio/RjyStops/8.papermill road.mp3'),
+  '9.Vemagiri.mp3': require('../assets/audio/RjyStops/9.Vemagiri.mp3'),
+
+  // KKDStops audio files
+  '1.Balaji Cheruvu.mp3': require('../assets/audio/KKDStops/1.Balaji Cheruvu.mp3'),
+  '2.Indrapalem.mp3': require('../assets/audio/KKDStops/2.Indrapalem.mp3'),
+  '3.Madhavapatnam.mp3': require('../assets/audio/KKDStops/3.Madhavapatnam.mp3'),
+  '4.Prathap Nagar.mp3': require('../assets/audio/KKDStops/4.Prathap Nagar.mp3'),
+  '5.PRdegree college.mp3': require('../assets/audio/KKDStops/5.PRdegree college.mp3'),
 
   // ST-12 audio files
   '3telaprolu.mp3': require('../assets/audio/ST-12/3telaprolu.mp3'),
@@ -152,5 +197,7 @@ export const audioAssets: { [key: string]: any } = {
   'NL02 B 4142 - Samanvi_Travels_Safety_Announcement..mp3': require('../assets/audio/welcomenotes/NL02 B 4142 - Samanvi_Travels_Safety_Announcement..mp3'),
   'NL02 B 4241 - Samanvi_Travels_Safety_Announcement..mp3': require('../assets/audio/welcomenotes/NL02 B 4241 - Samanvi_Travels_Safety_Announcement..mp3'),
   'NL02 B 5152 - Samanvi_Travels_Safety_Announcement..mp3': require('../assets/audio/welcomenotes/NL02 B 5152 - Samanvi_Travels_Safety_Announcement..mp3'),
-  'NL02 B 5251 - Samanvi_Travels_Safety_Announcement..mp3': require('../assets/audio/welcomenotes/NL02 B 5251 - Samanvi_Travels_Safety_Announcement..mp3')
+  'NL02 B 5251 - Samanvi_Travels_Safety_Announcement..mp3': require('../assets/audio/welcomenotes/NL02 B 5251 - Samanvi_Travels_Safety_Announcement..mp3'),
+  'NL02 B 6162 - Samanvi_Travels_Safety_Announcement..mp3': require('../assets/audio/welcomenotes/NL02 B 6162 - Samanvi_Travels_Safety_Announcement.mp3'),
+  'NL02 B 6261 - Samanvi_Travels_Safety_Announcement..mp3': require('../assets/audio/welcomenotes/NL02 B 6261 - Samanvi_Travels_Safety_Announcement.mp3')
 }; 
