@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "Bus Route Audio Guide",
+    "name": "Samanvi Route Audio",
     "slug": "bus-route-audio-guide",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "myapp",
@@ -13,11 +13,13 @@
       "versionCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/icon.png",
-        "backgroundColor": "#d95639"
+        "backgroundColor": "#000000"
       },
       "permissions": [
         "android.permission.INTERNET",
-        "android.permission.VIBRATE"
+        "android.permission.VIBRATE",
+        "android.permission.RECORD_AUDIO",
+        "android.permission.MODIFY_AUDIO_SETTINGS"
       ]
     },
     "ios": {
@@ -43,6 +45,7 @@
       "eas": {
         "projectId": "f46c2a80-8bff-475f-8abf-164d6083e7e5"
       }
-    }
+    },
+    "owner": "nagendra.s.y"
   }
 }
